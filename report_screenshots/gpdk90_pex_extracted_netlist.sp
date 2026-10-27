@@ -1,0 +1,129 @@
+*
+*
+*
+*                       LINUX           Tue Oct 27 18:56:59 2026
+*
+*
+*
+*  PROGRAM  advgen
+*
+*  HSPICE LIBRARY
+*
+*
+*
+
+*
+.SUBCKT simple_6t_sram_cell VDD GND BL BL_bar Wl
+*
+*
+*  caps2d version: 10
+*
+*
+*       TRANSISTOR CARDS
+*
+*
+MNM1	Q#5	Q_bar#3	GND#4	GND#1	nmos1v	L=0.1U	W=0.12U
++ AD=0.0696P	AS=0.0696P	PD=1.16U	PS=1.16U
++ simW=1.2e-07 fw=1.2e-07
+MNM0	Q_bar#9	Q#13	GND#7	GND#1	nmos1v	L=0.1U	W=0.12U
++ AD=0.0696P	AS=0.0696P	PD=1.16U	PS=1.16U
++ simW=1.2e-07 fw=1.2e-07
+MNM3	Q_bar#5	Wl#3	BL_bar#1	GND#1	nmos1v	L=0.1U	W=0.12U
++ AD=0.0696P	AS=0.0696P	PD=1.16U	PS=1.16U
++ simW=1.2e-07 fw=1.2e-07
+MNM2	Q#9	Wl#2	BL#1	GND#1	nmos1v	L=0.1U	W=0.12U
++ AD=0.0696P	AS=0.0696P	PD=1.16U	PS=1.16U
++ simW=1.2e-07 fw=1.2e-07
+MPM1	Q	Q_bar#4	VDD#4	VDD#1	pmos1v	L=0.1U	W=0.12U
++ AD=0.0696P	AS=0.0696P	PD=1.16U	PS=1.16U
++ simW=1.2e-07 fw=1.2e-07
+MPM0	Q_bar#12	Q#11	VDD#7	VDD#1	pmos1v	L=0.1U	W=0.12U
++ AD=0.0696P	AS=0.0696P	PD=1.16U	PS=1.16U
++ simW=1.2e-07 fw=1.2e-07
+*
+*
+*       RESISTOR AND CAP/DIODE CARDS
+*
+Rj1	Wl#1	Wl#2	  110.6136	$poly
+Rj2	Q_bar	Q_bar#2	   18.6951	$poly
+Rj3	Q_bar#2	Q_bar#3	   72.1467	$poly
+Rj4	Q_bar#2	Q_bar#4	   38.1467	$poly
+Rj5	Q#11	Q#12	   76.8667	$poly
+Rj6	Q#12	Q#10	    7.0284	$poly
+Rj7	Q#12	Q#13	   38.8667	$poly
+Rj8	Wl#3	Wl#4	  110.6136	$poly
+Ri1	BL#1	BL#2	   15.0000	$mt1
+Ri2	BL#2	BL#3	    1.4053	$mt1
+Ri4	Q#2	Q#4	    0.3806	$mt1
+Ri5	Q#4	Q#6	    0.1939	$mt1
+Ri7	Q#6	Q#8	    0.1533	$mt1
+Ri8	Q#8	Q#9	   15.0000	$mt1
+Ri9	Q#4	Q#10	   10.5547	$mt1
+Ri10	Q	Q#2	   15.0000	$mt1
+Ri11	Q#5	Q#6	   15.0000	$mt1
+Ri13	Q_bar#6	Q_bar#8	    0.1533	$mt1
+Ri15	Q_bar#8	Q_bar#11	    0.3628	$mt1
+Ri16	Q_bar#11	Q_bar	    0.5374	$mt1
+Ri17	Q_bar#11	Q_bar#13	    0.2117	$mt1
+Ri19	Q_bar#5	Q_bar#6	   15.0000	$mt1
+Ri20	Q_bar#9	Q_bar#8	   15.0000	$mt1
+Ri21	Q_bar#12	Q_bar#13	   15.0000	$mt1
+Ri22	BL_bar#1	BL_bar#2	   15.0000	$mt1
+Ri23	BL_bar#2	BL_bar#3	    1.4057	$mt1
+Ri24	VDD#1	VDD#2	   15.1743	$mt1
+Ri25	VDD#2	VDD	    0.6475	$mt1
+Ri26	VDD#2	VDD#3	    0.2025	$mt1
+Ri27	VDD#3	VDD#5	6.842E-02	$mt1
+Ri29	VDD#3	VDD#8	    0.1129	$mt1
+Ri31	VDD#4	VDD#5	   15.0000	$mt1
+Ri32	VDD#7	VDD#8	   15.0000	$mt1
+Ri33	GND#1	GND#2	   15.1853	$mt1
+Ri34	GND#2	GND	    0.6385	$mt1
+Ri35	GND#2	GND#3	    0.2605	$mt1
+Ri36	GND#3	GND#5	4.786E-02	$mt1
+Ri38	GND#3	GND#8	    0.1012	$mt1
+Ri40	GND#4	GND#5	   15.0000	$mt1
+Ri41	GND#7	GND#8	   15.0000	$mt1
+Ri42	Wl#4	Wl#1	    1.0578	$mt1
+Ri43	Wl#1	Wl	    0.3598	$mt1
+Rh1	BL	BL#3	    0.3933	$mt2
+Rh2	BL_bar	BL_bar#3	    0.3933	$mt2
+*
+*       CAPACITOR CARDS
+*
+*
+C1	VDD	GND	1.168E-16
+C2	BL	GND	7.702E-17
+C3	BL_bar	GND	7.738E-17
+C4	Wl	GND	9.350E-17
+C5	Q_bar	GND	1.634E-16
+C6	Q_bar#4	GND	4.087E-17
+C7	Q#11	GND	5.204E-17
+C8	Wl#2	GND	6.551E-17
+C9	Q_bar#3	GND	6.100E-17
+C10	Q#13	GND	4.115E-17
+C11	Wl#3	GND	6.432E-17
+C12	Wl#1	GND	2.605E-16
+C13	Q#10	GND	1.614E-16
+C14	Wl#4	GND	3.788E-16
+C15	BL#3	GND	2.801E-16
+C16	BL_bar#3	GND	2.843E-16
+C17	VDD#1	GND	1.954E-16
+C18	Q#8	GND	4.249E-17
+C19	Q_bar#8	GND	7.302E-17
+C20	Q_bar#2	GND	5.677E-17
+C21	Q#2	GND	5.961E-17
+C22	Q#4	GND	7.808E-17
+C23	Q#6	GND	4.815E-17
+C24	Q#12	GND	5.683E-17
+C25	Q_bar#6	GND	4.601E-17
+C26	Q_bar#11	GND	7.681E-17
+C27	Q_bar#13	GND	4.049E-17
+C28	VDD#2	GND	2.049E-17
+C29	VDD#3	GND	2.124E-17
+C30	VDD#5	GND	3.257E-17
+C31	VDD#8	GND	2.729E-17
+*
+*
+.ENDS simple_6t_sram_cell
+*

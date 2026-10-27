@@ -13,6 +13,7 @@ Everything new lives in `cadence_vm/`, `tools/`, `analysis/`, `docs/`.
 | `cadence_vm/results/`, `reports/`, `screenshots/` | VTC/waveform text files, Assura run files + LVS report, GDS files, GUI screenshots |
 | `tools/` | `snm_analysis.py` (butterfly + SNM), `tb_analysis.py` (timing/energy), `compare_plot.py`, `fp45_drc.sh` (not yet run, see below) |
 | `analysis/` | butterfly plots, JSON/TXT metrics |
+| `report_screenshots/` | figures for the report (see its `INDEX.txt`): layout views, Assura DRC/LVS/RCX GUI dialogs and the extracted netlist, SNM butterflies, transients, schematics |
 | `docs/` | `comparison.md` (**the three-technology table**), `issues_log.md`, `sky130_status.md` |
 
 ## Reproduce gpdk090 on the university server (Virtuoso 6.1.8)
@@ -29,3 +30,9 @@ Schematic + simulation done (kit symbols, PTM models through Spectre). Layout dr
 that my environment declined to run. Either run `tools/fp45_drc.sh freepdk45_src/simple_6t_sram_cell.gds simple_6t_sram_cell out/` yourself
 after reading the deck, or tell me to run it. There is no parasitic extraction tool for FreePDK45 on the VM.
 Rebuild: `FP45=<dir with ncsu_basekit> cadence_vm/scripts/make_fp45_models.sh`, then `skill_fp45/fp45_cells.il`, `skill_fp45/run_lay.il`, `run_ocean_fp45.sh`.
+
+## GUI re-run of DRC / LVS / RCX (gpdk090)
+For the report the three Assura checks were repeated through the Virtuoso GUI (Assura > Run DRC / Run LVS / Run RCX) and screenshotted:
+DRC "No DRC errors found", LVS "Schematic and Layout Match" (0 mismatches), RCX (RC, decoupled, ref node GND) completed; the extracted
+SPICE netlist (6 MOS, 41 R, 31 C) is `report_screenshots/gpdk90_pex_extracted_netlist.sp`. In the GUI the technology list is empty until
+Assura > Technology points at `<gpdk090 kit>/assura_tech.lib`. The earlier batch results (`cadence_vm/scripts/assura_run.sh`) are unchanged.

@@ -1,0 +1,29 @@
+REPORT FIGURES - single 6T SRAM cell (gpdk090 90 nm; FreePDK45 where noted)
+Screens were captured from the Virtuoso 6.1.5 GUI on the VM (Assura 4.1); curves are plotted from the saved Spectre data.
+
+layouts/
+  gpdk90_layout_view.png            layout view of simple_6t_sram_cell (version_90nm_sram_puf), all layers
+  fp45_layout_view.png              FreePDK45 layout (plain rectangles; DRC/LVS/PEX NOT run)
+
+gpdk90_drc_1_run_form.png           Run Assura DRC form (technology gpdk090)
+gpdk90_drc_2_completed_dialog.png   "DRC run gui_drc ... completed successfully"
+gpdk90_drc_3_no_errors_found.png    "No DRC errors found."
+gpdk90_drc_summary.sum              DRC summary text file
+gpdk90_lvs_1_run_form.png           Run Assura LVS form
+gpdk90_lvs_2_match_dialog.png       "Schematic and Layout Match", all mismatch counts 0
+gpdk90_lvs_3_debug_window_match.png LVS Debug window: *** Schematic and Layout Match
+gpdk90_lvs_summary.csm              LVS compare summary text file
+gpdk90_pex_1..3_run_form_*.png      Assura RCX forms (Setup / Extraction = RC, decoupled, ref node GND / Run Details)
+gpdk90_pex_4_rcx_completed_dialog.png  "RCX run gui_lvs completed successfully"
+gpdk90_pex_5_extracted_netlist_1..4 extracted SPICE netlist opened in a text editor (devices, R cards, C cards)
+gpdk90_pex_extracted_netlist.sp     the extracted netlist itself (6 MOS, 41 R, 31 C)
+
+curves/
+  gpdk90_snm.png                    hold (user CSV), hold (regenerated), read, write butterflies; gpdk90_snm_*.png = single panels
+  fp45_snm.png                      FreePDK45 hold / read / write butterflies
+  compare_snm_gpdk90_fp45.png       both technologies overlaid
+  gpdk90_transient_pre_vs_post.png  write/read transient, schematic vs post-layout RC (solid vs dashed)
+  fp45_transient_schematic.png      FreePDK45 transient (schematic only)
+  (0-1 ns in the transients is the cell settling from its initial DC state; the write happens at ~1 ns, the read at ~8 ns)
+
+schematics/                         cell, testbench and SNM-bench schematics for both technologies
