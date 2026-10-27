@@ -1,6 +1,6 @@
 # sky130 SRAM-PUF flow (this PC): what is done / not done
 
-Read from the repository `SRAM_PUF` (HEAD `bb762b2`, working tree clean) — **nothing was re-run**.
+Read from the repository `SRAM_PUF` (now HEAD `2171619`, working tree clean). Re-checked on 2026-10-28 **without re-running any chip campaign**: `make check` ok for all testbenches, `tb_sram6t` PASS, recorded DRC/LVS/post-layout reports unchanged. Every earlier campaign problem had already been fixed and re-run, so none needed repeating (details: `SRAM_PUF/docs/status.md`).
 
 **Done, committed and pushed (GitHub `segfault610/SRAM_PUF`)**
 * front end: xschem schematics (hand-wired ones untouched), testbenches, ngspice characterisation (PVT, Monte-Carlo, SNM, write margin, read current)
@@ -15,4 +15,4 @@ Read from the repository `SRAM_PUF` (HEAD `bb762b2`, working tree clean) — **n
 * digital PUF controller / chip level in LibreLane (installed, smoke-tested only); no pad ring
 * poly word-lines not strapped (≈ 0.2 ns extra at far end); cell area not optimised (logic rules, 11.5 µm² pitch)
 * analog noise only modelled (kT/C), single 16×16 macro
-* documentation inconsistency: `docs/characterization.md` "Known limitations" still says *"No layout / parasitic extraction"* — outdated since the layout work; should be edited when you next touch the repo (not changed here)
+* the outdated "No layout / parasitic extraction" limitation in `docs/characterization.md` was **fixed** (2026-10-28); new in that repo: `docs/status.md` (done/open, what a chip campaign is) and `docs/tutorial_xschem_gaw.md` / `.pdf` (open the design in xschem, inspect waveforms in GAW)
