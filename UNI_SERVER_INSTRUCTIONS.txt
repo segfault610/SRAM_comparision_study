@@ -1,0 +1,51 @@
+RUNNING THIS REPOSITORY ON THE UNIVERSITY SERVER (Virtuoso 6.1.8)
+==================================================================
+Your own files (cds.lib, cds.lib.copy, gpdk90/version_90nm_sram_puf/*, CSVs, JPGs) are unchanged.
+cds.lib needs no edit for gpdk90, and Virtuoso needs no argument: it reads ./cds.lib from the directory you start it in.
+Everything was developed and tested on Virtuoso 6.1.5 (VM) only.
+
+1. CLONE to the same path that cds.lib points to:
+     cd /home/userdata/24bvd0198
+     git clone https://github.com/segfault610/SRAM_comparision_study
+     cd SRAM_comparision_study
+   (Other location: edit the DEFINE version_90nm_sram_puf line in cds.lib.)
+
+2. OPEN VIRTUOSO in the clone:
+     cd /home/userdata/24bvd0198/SRAM_comparision_study
+     virtuoso &
+
+3. MERGE MY NEW gpdk090 CELLS into your library (staged in cadence_vm/lib_additions/gpdk90/):
+     cp -r gpdk90/version_90nm_sram_puf gpdk90/version_90nm_sram_puf.bak
+     cp -r cadence_vm/lib_additions/gpdk90/* gpdk90/version_90nm_sram_puf/
+   Then refresh the Library Manager. This adds: simple_6t_sram_cell_snm_hold_gen / _read / _write (schematics) and the
+   layout + av_extracted views of simple_6t_sram_cell. (Not tested on 6.1.8; backup first.)
+
+4. OR REGENERATE EVERYTHING by script (gpdk090, ~80 s). The work directory MUST be named vm_work and sit next to cadence_vm:
+     mkdir vm_work && cp cds.lib vm_work/
+     export PDK=<gpdk090 kit directory on the server>
+     export DISPLAY=<your display>          # the kit's CDF callbacks need one
+     ./cadence_vm/run_gpdk090.sh vm_work
+   Needs virtuoso, ocean/spectre and assura on the PATH. Assura DRC/LVS/RCX needs the avTech library in vm_work/cds.lib
+   (your SOFTINCLUDE may already provide it; otherwise add:  DEFINE avTech <Assura install>/tools/assura/etc/avtech/avTech ).
+   Results: cadence_vm/results/, Assura run directories: vm_work/runs/.
+
+5. ANALYSIS (any machine with python3 + numpy + matplotlib):
+     python3 tools/snm_analysis.py analysis/my "hold:hold:cadence_vm/results/<file>_vtc.txt" "read:read:..." "write:write:..."
+     VDD=1.2 python3 tools/tb_analysis.py cadence_vm/results/tb_simple_6t_sram_cell_pre_wave.txt   (VDD=1.0 for FreePDK45)
+
+6. FreePDK45 (optional, more setup):
+   - The kit copy is NOT in the repo (freepdk45_src/ is git-ignored). Download/copy FreePDK45 v1.4 (ncsu_basekit) to the server.
+   - Copy cadence_vm/lib_additions/freepdk45/fp45_sram6t to a path of your choice and add to vm_work/cds.lib
+     (see cadence_vm/config/cds.lib.template):
+        DEFINE NCSU_TechLib_FreePDK45 <kit>/ncsu_basekit/lib/NCSU_TechLib_FreePDK45
+        DEFINE NCSU_Devices_FreePDK45 <kit>/ncsu_basekit/lib/NCSU_Devices_FreePDK45
+        DEFINE fp45_sram6t <path>/fp45_sram6t
+   - In the CIW load the layer colours:  drLoadDrf("<kit>/ncsu_basekit/cdssetup/display.drf")
+   - Build the Spectre model wrappers:  FP45=<kit dir containing ncsu_basekit> cadence_vm/scripts/make_fp45_models.sh
+   - Simulations: cadence_vm/run_ocean_fp45.sh (edit its paths); schematic/layout generators: cadence_vm/skill_fp45/.
+   - DRC/LVS/extraction for FreePDK45 were NOT run (kit has Calibre decks only; the KLayout deck is third-party code that
+     was not executed). See docs/issues_log.md, entry 16.
+
+NOTES
+ - Documents: docs/comparison.md (three-technology table), docs/issues_log.md (setbacks), docs/sky130_status.md.
+ - Ignored by git: .cadence/, flex*.log, lock files, freepdk45_src/.
