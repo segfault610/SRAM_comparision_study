@@ -1,0 +1,5 @@
+load("skill/config.il")
+load("skill/util.il")
+load("skill/lay_cell.il")
+sp_make_layout_cell("simple_6t_sram_cell")
+exit()

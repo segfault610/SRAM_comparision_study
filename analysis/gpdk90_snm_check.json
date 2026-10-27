@@ -1,0 +1,30 @@
+{
+ "user_csv": {
+  "mode": "hold",
+  "lobe_Qbar_high": 0.31880542669602624,
+  "lobe_Q_high": 0.31880542669602624,
+  "snm_V": 0.31880542669602624,
+  "write_ok": null
+ },
+ "gen_hold": {
+  "mode": "hold",
+  "lobe_Qbar_high": 0.31874872547572464,
+  "lobe_Q_high": 0.31874872547572464,
+  "snm_V": 0.31874872547572464,
+  "write_ok": null
+ },
+ "read": {
+  "mode": "read",
+  "lobe_Qbar_high": 0.054953883460859325,
+  "lobe_Q_high": 0.054953883460859325,
+  "snm_V": 0.054953883460859325,
+  "write_ok": null
+ },
+ "write": {
+  "mode": "write",
+  "lobe_Qbar_high": 0.5361459548144164,
+  "lobe_Q_high": 1.4819654012568078e-06,
+  "snm_V": 0.5361459548144164,
+  "write_ok": true
+ }
+}

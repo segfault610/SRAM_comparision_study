@@ -1,0 +1,7 @@
+load("skill/config.il")
+load("skill/util.il")
+load("skill/snm_cells.il")
+sp_make_snm("simple_6t_sram_cell_snm_hold_gen" "hold")
+sp_make_snm("simple_6t_sram_cell_snm_read"  "read")
+sp_make_snm("simple_6t_sram_cell_snm_write" "write")
+exit()

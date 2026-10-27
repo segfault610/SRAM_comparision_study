@@ -1,0 +1,6 @@
+flex*.log
+*.cdslck*
+cadence_vm/.drv.ocn
+cadence_vm/logs/
+freepdk45_src/
+.cadence/

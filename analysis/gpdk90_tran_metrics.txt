@@ -1,0 +1,18 @@
+== cadence_vm/results/tb_simple_6t_sram_cell_pre_wave.txt
+  write1_delay_ps                   31.06
+  read_disturb_QB_peak_mV           347.2
+  read_Q_min_V                      1.045
+  Q_after_write_V                     1.2
+  Q_after_read_V                      1.2
+  write_energy_fJ                   2.705
+  read_energy_fJ                    26.36
+  leak_hold_nA                      28.01
+== cadence_vm/results/tb_simple_6t_sram_cell_post_wave.txt
+  write1_delay_ps                   39.56
+  read_disturb_QB_peak_mV             348
+  read_Q_min_V                      1.045
+  Q_after_write_V                     1.2
+  Q_after_read_V                      1.2
+  write_energy_fJ                   3.245
+  read_energy_fJ                    26.38
+  leak_hold_nA                      48.09

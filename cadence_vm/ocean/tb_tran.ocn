@@ -1,0 +1,25 @@
+;;; tb_tran.ocn - transient of the user's tb_simple_6t_sram_cell, pre-layout (schematic) or post-layout (av_extracted).
+;;; ocnView = "schematic" | "av_extracted"   ocnTag = "pre" | "post"   (run from vm_work/)
+unless(boundp('ocnView) ocnView = "schematic")
+unless(boundp('ocnTag)  ocnTag  = "pre")
+unless(boundp('ocnLib)  ocnLib  = "version_90nm_sram_puf")
+unless(boundp('ocnTb)   ocnTb   = "tb_simple_6t_sram_cell")
+unless(boundp('ocnTemp) ocnTemp = 27)
+unless(boundp('ocnSection) ocnSection = "NN")
+simulator('spectre)
+design(ocnLib ocnTb "schematic")
+if(ocnView == "av_extracted"
+  then envOption('switchViewList list("spectre" "av_extracted" "cmos_sch" "cmos.sch" "schematic" "veriloga"))
+  else envOption('switchViewList list("spectre" "cmos_sch" "cmos.sch" "schematic" "veriloga")))
+envOption('stopViewList list("spectre"))
+resultsDir(sprintf(nil "%s/runs/%s_%s" getWorkingDir() ocnTb ocnTag))
+modelFile(list("/home/buet/cadence/gpdk090_v4.6/models/spectre/gpdk090.scs" ocnSection))
+analysis('tran ?stop "12n" ?maxstep "5p")
+temp(ocnTemp)
+save("all")
+createNetlist(?recreateAll t ?display nil)
+run()
+selectResult("tran")
+ocnPrint(?output sprintf(nil "../cadence_vm/results/%s_%s_wave.txt" ocnTb ocnTag) ?numberNotation 'scientific ?numSpaces 1
+         v("/net3") v("/net2") v("/net1") v("/I0/Q") v("/I0/Q_bar") i("/V0/PLUS"))
+exit

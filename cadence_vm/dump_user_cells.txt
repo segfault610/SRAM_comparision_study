@@ -1,0 +1,224 @@
+SP: ===== version_90nm_sram_puf/simple_6t_sram_cell  (11 insts)
+SP: NM3      gpdk090/nmos1v @(3.4375 1.0) MYR90
+SP:     term D -> Q_bar
+SP:     term G -> Wl
+SP:     term S -> BL_bar
+SP: NM2      gpdk090/nmos1v @(-2.3125 1.0) R270
+SP:     term D -> Q
+SP:     term G -> Wl
+SP:     term S -> BL
+SP: NM1      gpdk090/nmos1v @(2.25 -0.1875) MY
+SP:     term D -> Q
+SP:     term G -> Q_bar
+SP:     term S -> GND
+SP: NM0      gpdk090/nmos1v @(-1.25 -0.1875) R0
+SP:     term D -> Q_bar
+SP:     term G -> Q
+SP:     term S -> GND
+SP: PM1      gpdk090/pmos1v @(2.25 1.9375) MY
+SP:     term D -> Q
+SP:     term G -> Q_bar
+SP:     term S -> VDD
+SP: PM0      gpdk090/pmos1v @(-1.25 1.9375) R0
+SP:     term D -> Q_bar
+SP:     term G -> Q
+SP:     term S -> VDD
+SP: PIN4     basic/iopin @(5.25 3.5) R0
+SP: PIN3     basic/iopin @(-4.125 3.5) R0
+SP: PIN2     basic/iopin @(-3.25 3.5) R0
+SP: PIN1     basic/iopin @(0.625 -0.9375) R0
+SP: PIN0     basic/iopin @(0.5 2.875) R0
+SP: net VDD
+SP: net GND
+SP: net Wl
+SP: net BL
+SP: net BL_bar
+SP: net Q_bar
+SP: net Q
+SP: ===== version_90nm_sram_puf/simple_6t_sram_cell_snm  (21 insts)
+SP: NM3      gpdk090/nmos1v @(3.4375 1.0) MYR90
+SP:     term D -> net2
+SP:     term G -> net4
+SP:     term S -> net5
+SP: NM2      gpdk090/nmos1v @(-2.3125 1.0) R270
+SP:     term D -> net1
+SP:     term G -> net4
+SP:     term S -> net3
+SP: NM1      gpdk090/nmos1v @(2.25 -0.1875) MY
+SP:     term D -> Q_bar
+SP:     term G -> net2
+SP:     term S -> gnd!
+SP: NM0      gpdk090/nmos1v @(-1.25 -0.1875) R0
+SP:     term D -> Q
+SP:     term G -> net1
+SP:     term S -> gnd!
+SP: PM1      gpdk090/pmos1v @(2.25 1.9375) MY
+SP:     term D -> Q_bar
+SP:     term G -> net2
+SP:     term S -> vdd!
+SP: PM0      gpdk090/pmos1v @(-1.25 1.9375) R0
+SP:     term D -> Q
+SP:     term G -> net1
+SP:     term S -> vdd!
+SP: I4       analogLib/vdd @(0.5625 2.8125) R0
+SP:     term vdd! -> vdd!
+SP: I5       analogLib/vdd @(-4.375 2.75) R0
+SP:     term vdd! -> vdd!
+SP: V6       analogLib/vdc @(0.9375 1.0625) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> net2
+SP:     term MINUS -> gnd!
+SP: V5       analogLib/vdc @(-4.375 2.5) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> vdd!
+SP:     term MINUS -> gnd!
+SP: V0       analogLib/vdc @(-0.5 1.0625) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> net1
+SP:     term MINUS -> gnd!
+SP: V2       analogLib/vdc @(-4.125 0.5) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> net3
+SP:     term MINUS -> gnd!
+SP: V3       analogLib/vdc @(-3.25 3.375) R0
+SP:     vdc = "0"
+SP:     term PLUS -> net4
+SP:     term MINUS -> gnd!
+SP: V4       analogLib/vdc @(4.375 3.5) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> net5
+SP:     term MINUS -> gnd!
+SP: I8       analogLib/gnd @(0.9375 0.4375) R0
+SP:     term gnd! -> gnd!
+SP: I7       analogLib/gnd @(0.75 -0.9375) R0
+SP:     term gnd! -> gnd!
+SP: I6       analogLib/gnd @(-4.375 1.875) R0
+SP:     term gnd! -> gnd!
+SP: I3       analogLib/gnd @(4.375 2.875) R0
+SP:     term gnd! -> gnd!
+SP: I2       analogLib/gnd @(-3.25 2.75) R0
+SP:     term gnd! -> gnd!
+SP: I1       analogLib/gnd @(-4.125 -0.125) R0
+SP:     term gnd! -> gnd!
+SP: I0       analogLib/gnd @(0.5 0.3125) R0
+SP:     term gnd! -> gnd!
+SP: net vdd!
+SP: net Q_bar
+SP: net Q
+SP: net gnd!
+SP: net net1
+SP: net net2
+SP: net net3
+SP: net net4
+SP: net net5
+SP: ===== version_90nm_sram_puf/tb_simple_6t_sram_cell  (12 insts)
+SP: I0       version_90nm_sram_puf/simple_6t_sram_cell @(-1.875 0.25) R0
+SP:     term GND -> gnd!
+SP:     term VDD -> vdd!
+SP:     term Wl -> net3
+SP:     term BL_bar -> net2
+SP:     term BL -> net1
+SP: V0       analogLib/vdc @(3.375 0.125) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> vdd!
+SP:     term MINUS -> gnd!
+SP: V3       analogLib/vpwl @(2.8125 0.1875) R0
+SP:     t1 = "0"
+SP:     v2 = "1.2"
+SP:     t2 = "12n"
+SP:     v1 = "1.2"
+SP:     term PLUS -> net1
+SP:     term MINUS -> gnd!
+SP: V2       analogLib/vpwl @(2.125 0.1875) R0
+SP:     tvpairs = 6
+SP:     v6 = "1.2"
+SP:     t6 = "12n"
+SP:     v5 = "1.2"
+SP:     t5 = "3.1n"
+SP:     t4 = "3n"
+SP:     t3 = "1n"
+SP:     v2 = "1.2"
+SP:     t2 = "900.0p"
+SP:     v1 = "1.2"
+SP:     t1 = "0"
+SP:     term PLUS -> net2
+SP:     term MINUS -> gnd!
+SP: V1       analogLib/vpwl @(1.375 0.1875) R0
+SP:     tvpairs = 10
+SP:     t10 = "12n"
+SP:     t9 = "10.1n"
+SP:     v8 = "1.2"
+SP:     t8 = "10n"
+SP:     v7 = "1.2"
+SP:     t7 = "8.1n"
+SP:     t6 = "8n"
+SP:     t5 = "3.1n"
+SP:     v4 = "1.2"
+SP:     t4 = "3n"
+SP:     v3 = "1.2"
+SP:     t3 = "1.1n"
+SP:     t2 = "1n"
+SP:     t1 = "0"
+SP:     term PLUS -> net3
+SP:     term MINUS -> gnd!
+SP: I5       analogLib/gnd @(2.8125 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I4       analogLib/gnd @(2.125 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I3       analogLib/gnd @(1.375 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I2       analogLib/gnd @(3.375 -0.625) R0
+SP:     term gnd! -> gnd!
+SP: I1       analogLib/gnd @(-0.4375 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I7       analogLib/vdd @(-1.4375 -0.5625) R180
+SP:     term vdd! -> vdd!
+SP: I6       analogLib/vdd @(3.375 0.4375) R0
+SP:     term vdd! -> vdd!
+SP: net net1
+SP: net net2
+SP: net net3
+SP: net vdd!
+SP: net gnd!
+SP: ===== version_90nm_sram_puf/tb_snm_simple_6t_sram_cell  (12 insts)
+SP: I0       version_90nm_sram_puf/simple_6t_sram_cell @(-1.875 0.25) R0
+SP:     term GND -> gnd!
+SP:     term VDD -> vdd!
+SP:     term Wl -> net3
+SP:     term BL_bar -> net2
+SP:     term BL -> net1
+SP: V1       analogLib/vdc @(1.375 0.1875) R0
+SP:     vdc = "0"
+SP:     term PLUS -> net3
+SP:     term MINUS -> gnd!
+SP: V2       analogLib/vdc @(2.125 0.1875) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> net2
+SP:     term MINUS -> gnd!
+SP: V3       analogLib/vdc @(2.8125 0.1875) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> net1
+SP:     term MINUS -> gnd!
+SP: V0       analogLib/vdc @(3.375 0.125) R0
+SP:     vdc = "1.2"
+SP:     term PLUS -> vdd!
+SP:     term MINUS -> gnd!
+SP: I5       analogLib/gnd @(2.8125 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I4       analogLib/gnd @(2.125 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I3       analogLib/gnd @(1.375 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I2       analogLib/gnd @(3.375 -0.625) R0
+SP:     term gnd! -> gnd!
+SP: I1       analogLib/gnd @(-0.4375 -0.5625) R0
+SP:     term gnd! -> gnd!
+SP: I7       analogLib/vdd @(-1.4375 -0.5625) R180
+SP:     term vdd! -> vdd!
+SP: I6       analogLib/vdd @(3.375 0.4375) R0
+SP:     term vdd! -> vdd!
+SP: net net1
+SP: net net2
+SP: net net3
+SP: net vdd!
+SP: net gnd!
