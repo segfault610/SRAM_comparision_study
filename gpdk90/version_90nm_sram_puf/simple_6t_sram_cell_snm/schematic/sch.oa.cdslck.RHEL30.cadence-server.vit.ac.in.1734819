@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      24bvd0198
+HostName                       cadence-server.vit.ac.in
+ProcessIdentifier              1734819
+ProcessCreationTime_UTC        1793103583
+ProcessCreationTime_Readable   Tue Oct 27 17:49:43 2026 IST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/userdata/24bvd0198/SRAM_comparision_study/gpdk90/version_90nm_sram_puf/simple_6t_sram_cell_snm/schematic/sch.oa.cdslck
+TimeEditLocked                 Tue Oct 27 18:04:39 2026 IST
