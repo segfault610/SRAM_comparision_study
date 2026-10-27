@@ -1,0 +1,7 @@
+cv = dbOpenCellViewByType("version_90nm_sram_puf" "tb_simple_6t_sram_cell" "schematic" nil "r")
+foreach(nm list("V1" "V2" "V3")
+  i = car(setof(x cv~>instances x~>name == nm))
+  printf("SP: %s n=%L\n" nm i~>tvpairs)
+  foreach(k list(1 2 3 4 5 6 7 8 9 10)
+    printf("SP:   %s t%d=%L v%d=%L\n" nm k dbGetPropByName(i sprintf(nil "t%d" k))~>value k dbGetPropByName(i sprintf(nil "v%d" k))~>value)))
+exit()

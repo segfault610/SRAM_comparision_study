@@ -1,0 +1,9 @@
+# Template: edit the paths. (Your own cds.lib stays untouched; run the flow from a separate work directory.)
+DEFINE gpdk090 $PDK/libs.oa22/gpdk090
+DEFINE analogLib $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE basic $CDSHOME/tools/dfII/etc/cdslib/basic
+DEFINE version_90nm_sram_puf <path>/gpdk90/version_90nm_sram_puf
+# FreePDK45 part (optional):
+# DEFINE NCSU_TechLib_FreePDK45 <FreePDK45>/ncsu_basekit/lib/NCSU_TechLib_FreePDK45
+# DEFINE NCSU_Devices_FreePDK45 <FreePDK45>/ncsu_basekit/lib/NCSU_Devices_FreePDK45
+# DEFINE fp45_sram6t <path>/fp45_sram6t

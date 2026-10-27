@@ -1,0 +1,5 @@
+foreach(lc list(list("NCSU_Devices_FreePDK45" "NMOS_VTG") list("gpdk090" "nmos1v"))
+  cv = dbOpenCellViewByType(car(lc) cadr(lc) "symbol" nil "r")
+  printf("SP: %s bbox %L\n" cadr(lc) cv~>bBox)
+  foreach(tm cv~>terminals printf("SP:   %s @ %L\n" tm~>name car(tm~>pins~>fig~>bBox))))
+exit()

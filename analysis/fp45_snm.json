@@ -1,0 +1,23 @@
+{
+ "hold": {
+  "mode": "hold",
+  "lobe_Qbar_high": 0.35878736269224676,
+  "lobe_Q_high": 0.35878736269224687,
+  "snm_V": 0.35878736269224676,
+  "write_ok": null
+ },
+ "read": {
+  "mode": "read",
+  "lobe_Qbar_high": 0.15484885824138414,
+  "lobe_Q_high": 0.15484885824138414,
+  "snm_V": 0.15484885824138414,
+  "write_ok": null
+ },
+ "write": {
+  "mode": "write",
+  "lobe_Qbar_high": 0.39355246845681624,
+  "lobe_Q_high": 1.6876069076917205e-06,
+  "snm_V": 0.39355246845681624,
+  "write_ok": true
+ }
+}

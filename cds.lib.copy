@@ -1,0 +1,2 @@
+SOFTINCLUDE /home/userdata/24bvd0198/cds.lib
+DEFINE version_90nm_sram_puf /home/userdata/24bvd0198/SRAM_comparision_study/gpdk90/version_90nm_sram_puf

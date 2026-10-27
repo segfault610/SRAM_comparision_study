@@ -40,7 +40,7 @@ procedure(sp_label_term(cv inst termName netName @optional (len 0.6))
     it = car(setof(x inst~>instTerms x~>name == termName))
     dir = if(it && it~>term then it~>term~>direction else "inputOutput")
     masterName = inst~>cellName
-    isMos = member(masterName list("nmos1v" "pmos1v" "nmos1v_hvt" "pmos1v_hvt" "nmos2v" "pmos2v" "nmoscap1v" "pmoscap1v"))
+    isMos = member(masterName list("nmos1v" "pmos1v" "nmos1v_hvt" "pmos1v_hvt" "nmos2v" "pmos2v" "nmoscap1v" "pmoscap1v" "NMOS_VTG" "NMOS_VTL" "NMOS_VTH" "PMOS_VTG" "PMOS_VTL" "PMOS_VTH"))
     if(isMos then
       cond(
         (termName == "G"
@@ -49,16 +49,16 @@ procedure(sp_label_term(cv inst termName netName @optional (len 0.6))
         (termName == "B"
           p2 = list(xCoord(p)+len yCoord(p))
           just = "centerLeft")
-        ((termName == "D" && member(masterName list("nmos1v" "nmos1v_hvt" "nmos2v")))
+        ((termName == "D" && member(masterName list("nmos1v" "nmos1v_hvt" "nmos2v" "NMOS_VTG" "NMOS_VTL" "NMOS_VTH")))
           p2 = list(xCoord(p) yCoord(p)+len)
           just = "lowerCenter")
-        ((termName == "S" && member(masterName list("nmos1v" "nmos1v_hvt" "nmos2v")))
+        ((termName == "S" && member(masterName list("nmos1v" "nmos1v_hvt" "nmos2v" "NMOS_VTG" "NMOS_VTL" "NMOS_VTH")))
           p2 = list(xCoord(p) yCoord(p)-len)
           just = "upperCenter")
-        ((termName == "S" && member(masterName list("pmos1v" "pmos1v_hvt" "pmos2v")))
+        ((termName == "S" && member(masterName list("pmos1v" "pmos1v_hvt" "pmos2v" "PMOS_VTG" "PMOS_VTL" "PMOS_VTH")))
           p2 = list(xCoord(p) yCoord(p)+len)
           just = "lowerCenter")
-        ((termName == "D" && member(masterName list("pmos1v" "pmos1v_hvt" "pmos2v")))
+        ((termName == "D" && member(masterName list("pmos1v" "pmos1v_hvt" "pmos2v" "PMOS_VTG" "PMOS_VTL" "PMOS_VTH")))
           p2 = list(xCoord(p) yCoord(p)-len)
           just = "upperCenter")
         (t

@@ -1,0 +1,6 @@
+load("skill_fp45/config.il")
+load("skill/util.il")
+load("skill_fp45/fp45_overrides.il")
+load("skill_fp45/lay_fp45.il")
+fp_make_layout("simple_6t_sram_cell")
+exit()

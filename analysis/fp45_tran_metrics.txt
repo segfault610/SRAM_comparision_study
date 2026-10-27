@@ -1,0 +1,9 @@
+== cadence_vm/results/fp45_tb_simple_6t_sram_cell_pre_wave.txt
+  write1_delay_ps                   41.64
+  read_disturb_QB_peak_mV           194.9
+  read_Q_min_V                     0.9952
+  Q_after_write_V                       1
+  Q_after_read_V                        1
+  write_energy_fJ                    1.72
+  read_energy_fJ                   0.2597
+  leak_hold_nA                      2.418
