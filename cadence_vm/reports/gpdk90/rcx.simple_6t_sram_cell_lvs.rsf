@@ -1,0 +1,9 @@
+avParameters( ?workingDirectory "/home/buet/SRAM_comparision_study/vm_work/runs/simple_6t_sram_cell_lvs" ?runName "simple_6t_sram_cell_lvs" ?inputLayout ("df2" "version_90nm_sram_puf") ?cellName "simple_6t_sram_cell" ?viewName "layout"
+ ?technology "gpdk090" ?techLib "/home/buet/cadence/gpdk090_v4.6/assura_tech.lib" )
+rcxParameters( ?outputFormat "dfII" ?extractedView "av_extracted" ?checkCellView nil ?resistor "presistor" ?resPropName "r"
+ ?capacitor "pcapacitor" ?capPropName "c" ?extract "both" ?netNameSpace "layout" ?maxFractureLength "infinite"
+ ?fractureLengthUnits "microns" ?temperature 25.0 ?capExtractMode "decoupled" ?capGround "gnd" ?capCouplingFactor 1.0
+ ?type "full" ?rcxfsType "none" ?minR 0.001 ?maxMergedViaSize "auto" ?arrayViasSpacing "auto" ?capModels "no"
+ ?parasiticCapModels "no" ?resModels "no" ?parasiticResModels "comment" ?runName "simple_6t_sram_cell_lvs" )
+setShellEnvVar("CDS_AUTO_CKOUT=all")
+avRCX()

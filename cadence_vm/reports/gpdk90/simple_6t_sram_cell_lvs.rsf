@@ -1,0 +1,7 @@
+avParameters( ?inputLayout ("df2" "version_90nm_sram_puf") ?cellName "simple_6t_sram_cell" ?viewName "layout" ?technology "gpdk090" ?techLib "/home/buet/cadence/gpdk090_v4.6/assura_tech.lib"
+ ?runName "simple_6t_sram_cell_lvs" ?workingDirectory "/home/buet/SRAM_comparision_study/vm_work/runs/simple_6t_sram_cell_lvs" ?avrpt t ?dbuPerUU 2000.0 ?flagNon45 t ?flagOffGrid (0.005 1.0)
+ ?joinPins top ?overwrite t ?userUnits "micron" ?textLevel (0:0) ?textPriOnly t )
+avCompareRules(
+ schematic( netlist( dfII "/home/buet/SRAM_comparision_study/vm_work/runs/simple_6t_sram_cell_lvs/simple_6t_sram_cell_lvs.vlr" ) )
+ bindingFile("/home/buet/cadence/gpdk090_v4.6/assura/bind.rul") )
+avLVS()

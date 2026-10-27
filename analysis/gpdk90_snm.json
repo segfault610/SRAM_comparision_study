@@ -1,12 +1,12 @@
 {
- "user_csv": {
+ "hold (user csv)": {
   "mode": "hold",
   "lobe_Qbar_high": 0.31880542669602624,
   "lobe_Q_high": 0.31880542669602624,
   "snm_V": 0.31880542669602624,
   "write_ok": null
  },
- "gen_hold": {
+ "hold (regenerated)": {
   "mode": "hold",
   "lobe_Qbar_high": 0.31874872547572464,
   "lobe_Q_high": 0.31874872547572464,

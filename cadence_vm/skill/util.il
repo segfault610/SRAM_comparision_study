@@ -34,7 +34,7 @@ procedure(sp_term_pt(inst termName)
          yCoord(xy)+0.5*(yCoord(car(bb))+yCoord(cadr(bb))))))
 
 ;;; Place a short wire stub on a terminal, pointing away without overlapping, and name the net.
-procedure(sp_label_term(cv inst termName netName @optional (len 0.3))
+procedure(sp_label_term(cv inst termName netName @optional (len 0.6))
   let((p p2 w just masterName isMos it dir)
     p = sp_term_pt(inst termName)
     it = car(setof(x inst~>instTerms x~>name == termName))
@@ -82,11 +82,11 @@ procedure(sp_label_term(cv inst termName netName @optional (len 0.3))
               then p2 = list(xCoord(p) yCoord(p)+len) just = "lowerCenter"
               else p2 = list(xCoord(p) yCoord(p)-len) just = "upperCenter")))))
     w = car(schCreateWire(cv "route" "full" list(p p2) 0.0625 0.0625 0.0))
-    schCreateWireLabel(cv w p2 netName just "R0" "stick" 0.05 nil)
+    schCreateWireLabel(cv w p2 netName just "R0" "stick" 0.2 nil)
     w))
 
 ;;; Place a pin with an attached wire stub and net label
-procedure(sp_create_pin(cv name dir pt @optional (len 0.25))
+procedure(sp_create_pin(cv name dir pt @optional (len 0.5))
   let((master mCell p2 w just)
     mCell = case(dir
       ("input" "ipin")
@@ -97,7 +97,7 @@ procedure(sp_create_pin(cv name dir pt @optional (len 0.25))
     p2 = list(xCoord(pt)+len yCoord(pt))
     just = "centerLeft"
     w = car(schCreateWire(cv "route" "full" list(pt p2) 0.0625 0.0625 0.0))
-    schCreateWireLabel(cv w p2 name just "R0" "stick" 0.0625 nil)
+    schCreateWireLabel(cv w p2 name just "R0" "stick" 0.2 nil)
     w))
 
 ;;; Create an instance of a cell from a library and return it

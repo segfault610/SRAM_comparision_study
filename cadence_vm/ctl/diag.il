@@ -1,0 +1,6 @@
+w = hiGetCurrentWindow()
+cv = geGetEditCellView()
+printf("DIAG layers %L\n" cv~>shapes~>layerName)
+printf("DIAG instbb %L\n" car(cv~>instances)~>bBox)
+printf("DIAG masterbb %L shapes %d\n" car(cv~>instances)~>master~>bBox length(car(cv~>instances)~>master~>shapes))
+printf("DIAG win %L\n" w~>bBox)
